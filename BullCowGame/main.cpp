@@ -28,7 +28,7 @@ string GetGuess()
 {
 	string Guess = "";
 	//cin >> Guess;
-	cout << "Enter Your Guess:::";
+	cout << "Enter Your Guess::";
 	getline(cin, Guess);
 	return Guess;
 }
