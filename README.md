@@ -1,2 +1,2 @@
 # BullsAndCowsGame
-A simple word guessing game built using c++.
+A simple word guessing game built using C++.
