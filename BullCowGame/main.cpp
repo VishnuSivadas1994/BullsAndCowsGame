@@ -2,10 +2,23 @@
 #include <string>
 using namespace std;
 void PrintIntro();	//Prints the introduction
+void PlayGame(); //Game Logic
 string GetGuess();	//Gets the Guess from the user
+bool AskToPlayAgain();
 int main()	//Entry point for the application
 {
-	PrintIntro();	
+	bool bPlayAgain = true;
+	do {
+		PrintIntro();
+		PlayGame();
+		bPlayAgain = AskToPlayAgain();
+	}
+	while(bPlayAgain);
+
+	return 0;
+}
+void PlayGame()
+{
 	string Guess = "";
 	constexpr int NUMBER_OF_TURNS = 5;
 	for (int i = 0; i < NUMBER_OF_TURNS; i++)
@@ -13,8 +26,6 @@ int main()	//Entry point for the application
 		Guess = GetGuess();
 		cout << "You entered::" << Guess << endl;
 	}
-	
-	return 0;
 }
 void PrintIntro()
 {
@@ -31,4 +42,12 @@ string GetGuess()
 	cout << "Enter Your Guess::";
 	getline(cin, Guess);
 	return Guess;
+}
+
+bool AskToPlayAgain()
+{
+	cout << "\nPlay Again?(y/n):";
+	string Response = "";
+	getline(cin, Response);
+	return (Response[0] == 'y') || (Response[0] == 'Y');
 }
